@@ -80,6 +80,8 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
             SizedBox(height: 20),
+
+            // FIRST GRID MENU HERE
             SectionTitle("Quick Earning"),
             GridMenu(items: [
               MenuItem("Daily Check", Icons.access_time, Colors.blue),
@@ -90,6 +92,8 @@ class HomeScreen extends StatelessWidget {
               MenuItem("Refer App", Icons.share, Colors.red),
             ]),
             SizedBox(height: 20),
+
+            // SECOND GRID MENU HERE
             SectionTitle("Play Quiz"),
             GridMenu(items: [
               MenuItem("Trending 2024", Icons.whatshot, Colors.orange),
@@ -100,6 +104,8 @@ class HomeScreen extends StatelessWidget {
               MenuItem("Riddle", Icons.extension, Colors.red),
             ]),
             SizedBox(height: 20),
+
+            // THIRD GRID MENU HERE
             SectionTitle("Promotions"),
             GridMenu(items: [
               MenuItem("Boost Video", Icons.ondemand_video, Colors.red),
@@ -112,6 +118,8 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
+
+      // BOTTOM NAVIGATION BAR HERE
       bottomNavigationBar: BottomNavBar(),
     );
   }

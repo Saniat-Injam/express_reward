@@ -1,6 +1,5 @@
 import 'package:express_reward/custom/menu_item.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class GridMenu extends StatelessWidget {
   final List<MenuItem> items;
@@ -33,10 +32,14 @@ class GridMenu extends StatelessWidget {
               Text(
                 item.title,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
-                  color: Colors.white,
+                style: TextStyle(
                   fontSize: 14,
+                  color: Colors.white,
                 ),
+                // style: GoogleFonts.poppins(
+                //   color: Colors.white,
+                //   fontSize: 14,
+                // ),
               ),
             ],
           ),
