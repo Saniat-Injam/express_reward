@@ -1,9 +1,8 @@
-import 'package:express_reward/custom/grid_menu.dart';
-import 'package:express_reward/custom/menu_item.dart';
-import 'package:express_reward/custom/selection_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'custom/bottom_navbar.dart';
+import 'package:express_reward/custom/grid_menu.dart';
+import 'package:express_reward/custom/selection_tile.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -84,36 +83,53 @@ class HomeScreen extends StatelessWidget {
             // FIRST GRID MENU HERE
             SectionTitle("Quick Earning"),
             GridMenu(items: [
-              MenuItem("Daily Check", Icons.access_time, Colors.blue),
-              MenuItem("Watch Video", Icons.play_circle_fill, Colors.purple),
-              MenuItem("Scratch Card", Icons.credit_card, Colors.pink),
-              MenuItem("Spin Wheel", Icons.casino, Colors.indigo),
-              MenuItem("Reading News", Icons.article, Colors.green),
-              MenuItem("Refer App", Icons.share, Colors.red),
+              MenuItem("Daily Check",
+                  imagePath: "icons/quick_earning/daily_check.png"),
+              MenuItem("Watch Video",
+                  imagePath: "icons/quick_earning/watch_video.png"),
+              MenuItem("Scratch Card",
+                  imagePath: "icons/quick_earning/scratch_card.png"),
+              MenuItem("Spin Wheel",
+                  imagePath: "icons/quick_earning/spin_wheel.png"),
+              MenuItem("Reading News",
+                  imagePath: "icons/quick_earning/reading_news.png"),
+              MenuItem("Refer App",
+                  imagePath: "icons/quick_earning/refer_app.png"),
             ]),
             SizedBox(height: 20),
 
             // SECOND GRID MENU HERE
             SectionTitle("Play Quiz"),
             GridMenu(items: [
-              MenuItem("Trending 2024", Icons.whatshot, Colors.orange),
-              MenuItem("Sports Quiz", Icons.sports_soccer, Colors.purple),
-              MenuItem("Music Quiz", Icons.music_note, Colors.pink),
-              MenuItem("English Quiz", Icons.book, Colors.blue),
-              MenuItem("Bangla Quiz", Icons.book_online, Colors.green),
-              MenuItem("Riddle", Icons.extension, Colors.red),
+              MenuItem("Trending 2024",
+                  imagePath: "icons/play_quiz/trending_2024.png"),
+              MenuItem("Sports Quiz",
+                  imagePath: "icons/play_quiz/sports_quiz.png"),
+              MenuItem("Music Quiz",
+                  imagePath: "icons/play_quiz/music_quiz.png"),
+              MenuItem("English Quiz",
+                  imagePath: "icons/play_quiz/english_quiz.png"),
+              MenuItem("Bangla Quiz",
+                  imagePath: "icons/play_quiz/bangla_quiz.png"),
+              MenuItem("Riddle", imagePath: "icons/play_quiz/riddle.png"),
             ]),
             SizedBox(height: 20),
 
             // THIRD GRID MENU HERE
             SectionTitle("Promotions"),
             GridMenu(items: [
-              MenuItem("Boost Video", Icons.ondemand_video, Colors.red),
-              MenuItem("Boost Traffic", Icons.public, Colors.orange),
-              MenuItem("Get Follower", Icons.facebook, Colors.blue),
-              MenuItem("Get Follower", Icons.group, Colors.blueAccent),
-              MenuItem("Get Follower", Icons.camera_alt, Colors.purple),
-              MenuItem("Get Follower", Icons.tiktok, Colors.black),
+              MenuItem("Boost Video",
+                  imagePath: "icons/promotions/boost_video.png"),
+              MenuItem("Boost Traffic",
+                  imagePath: "icons/promotions/boost_traffic.png"),
+              MenuItem("Get Follower",
+                  imagePath: "icons/promotions/get_followers_facebook.png"),
+              MenuItem("Get Follower",
+                  imagePath: "icons/promotions/get_followers_twitter.png"),
+              MenuItem("Get Follower",
+                  imagePath: "icons/promotions/get_followers_instagram.png"),
+              MenuItem("Get Follower",
+                  imagePath: "icons/promotions/get_followers_tiktok.png"),
             ]),
           ],
         ),

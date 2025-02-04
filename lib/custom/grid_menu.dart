@@ -1,5 +1,13 @@
-import 'package:express_reward/custom/menu_item.dart';
 import 'package:flutter/material.dart';
+
+class MenuItem {
+  final String title;
+  final IconData? icon;
+  final Color? color;
+  final String? imagePath;
+
+  MenuItem(this.title, {this.icon, this.color, this.imagePath});
+}
 
 class GridMenu extends StatelessWidget {
   final List<MenuItem> items;
@@ -27,7 +35,11 @@ class GridMenu extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(item.icon, color: item.color, size: 30),
+              if (item.imagePath != null)
+                Image.asset(item.imagePath!) // Asset Icon
+              else
+                Icon(item.icon, color: item.color, size: 30), // Default Icon
+
               SizedBox(height: 8),
               Text(
                 item.title,
