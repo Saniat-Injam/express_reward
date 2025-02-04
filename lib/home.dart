@@ -1,4 +1,6 @@
 import 'package:express_reward/custom/grid_menu.dart';
+import 'package:express_reward/custom/menu_item.dart';
+import 'package:express_reward/custom/selection_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'custom/bottom_navbar.dart';
@@ -113,32 +115,4 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(),
     );
   }
-}
-
-class SectionTitle extends StatelessWidget {
-  final String title;
-  const SectionTitle(this.title, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 10),
-      child: Text(
-        title,
-        style: GoogleFonts.poppins(
-          fontSize: 14,
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-}
-
-class MenuItem {
-  final String title;
-  final IconData icon;
-  final Color color;
-
-  MenuItem(this.title, this.icon, this.color);
 }
