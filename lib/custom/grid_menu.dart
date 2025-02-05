@@ -1,17 +1,12 @@
+import 'package:express_reward/custom/menu_item.dart';
 import 'package:flutter/material.dart';
-
-class MenuItem {
-  final String title;
-  final IconData? icon;
-  final Color? color;
-  final String? imagePath;
-
-  MenuItem(this.title, {this.icon, this.color, this.imagePath});
-}
 
 class GridMenu extends StatelessWidget {
   final List<MenuItem> items;
-  const GridMenu({super.key, required this.items});
+  const GridMenu({
+    super.key,
+    required this.items,
+  });
 
   @override
   Widget build(BuildContext context) {
