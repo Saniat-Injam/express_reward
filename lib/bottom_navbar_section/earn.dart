@@ -1,5 +1,5 @@
-import 'package:express_reward/custom/bottom_navbar.dart';
-import 'package:express_reward/custom/menu_item.dart';
+import 'package:express_reward/custom_section/bottom_navbar.dart';
+import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
