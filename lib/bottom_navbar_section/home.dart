@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:express_reward/custom_section/bottom_navbar.dart';
 import 'package:express_reward/custom_section/grid_menu.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
@@ -137,6 +138,7 @@ class HomeScreen extends StatelessWidget {
       ),
 
       // BOTTOM NAVIGATION BAR HERE
+
       bottomNavigationBar: BottomNavBar(),
     );
   }

@@ -20,16 +20,43 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: AnimationScreen(),
     );
   }
 }
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class AnimationScreen extends StatefulWidget {
+  const AnimationScreen({super.key});
+
+  @override
+  State<AnimationScreen> createState() => _AnimationScreenState();
+}
+
+class _AnimationScreenState extends State<AnimationScreen>
+    with SingleTickerProviderStateMixin {
+  late final AnimationController controller;
+  @override
+  void initState() {
+    super.initState();
+
+    //_controller =
+    AnimationController(vsync: this, duration: Durations.extralong4);
+  }
+
+  @override
+  void dispose() {
+    //_controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    return Scaffold(
+      body: _buildUI(),
+    );
+  }
+
+  Widget _buildUI() {
     return Scaffold(
       backgroundColor: Color(0xff04031A),
       body: Column(
@@ -38,10 +65,12 @@ class SplashScreen extends StatelessWidget {
           Expanded(
             child: Center(
               child: Lottie.asset(
-                'animations/dollar_spin.json',
+                "animations/dollar_spin.json",
+                //controller: _controller,
                 repeat: false,
-                width: 250,
+                //reverse: true,
                 height: 250,
+                width: 250,
               ),
             ),
           ),
