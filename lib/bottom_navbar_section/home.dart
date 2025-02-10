@@ -1,14 +1,17 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:express_reward/custom_section/bottom_navbar.dart';
 import 'package:express_reward/custom_section/grid_menu.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/custom_section/selection_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -136,10 +139,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-
-      // BOTTOM NAVIGATION BAR HERE
-
-      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

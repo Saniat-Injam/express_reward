@@ -1,4 +1,3 @@
-import 'package:express_reward/custom_section/bottom_navbar.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -128,7 +127,7 @@ class EarnScreen extends StatelessWidget {
           },
         ),
       ),
-      bottomNavigationBar: BottomNavBar(),
+      //bottomNavigationBar: BottomNavBar(),
     );
   }
 }
