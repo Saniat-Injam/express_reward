@@ -28,13 +28,19 @@ class _HomeScreenState extends State<HomeScreen> {
         // ),
         title: Row(
           children: [
-            Icon(Icons.monetization_on, color: Colors.green),
+            //Icon(Icons.monetization_on, color: Colors.green),
+            SizedBox(
+              height: 48,
+              width: 48,
+              child: Image.asset("icons/appbar_icons/dollar.png"),
+            ),
             SizedBox(width: 4),
             Text(
               "Express Reward",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ],
@@ -46,8 +52,12 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xff04031A),
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Text("\$1245.90",
-                style: GoogleFonts.poppins(color: Colors.lightGreenAccent)),
+            child: Text(
+              "\$1245.90",
+              style: TextStyle(
+                color: Color(0xff00EA7A),
+              ),
+            ),
           ),
           SizedBox(width: 10),
           Icon(Icons.notifications, color: Colors.white),
@@ -153,6 +163,8 @@ class NavigationDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
+      // Scrollable Column
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -165,12 +177,17 @@ class NavigationDrawer extends StatelessWidget {
     );
   }
 
+  // Drawer Header
   buildHeader(BuildContext context) {
+    // Material widget instead of container for including InkWell
     return Material(
       color: Color(0xff0D0C22),
+      // Inkwell widget to include some interaction to the header
       child: InkWell(
         onTap: () {
+          // Close navigation drawer before
           Navigator.pop(context);
+
           Navigator.of(context).push(MaterialPageRoute(
             builder: (context) => UserPage(),
           ));
@@ -226,10 +243,12 @@ class NavigationDrawer extends StatelessWidget {
     );
   }
 
+  // Column Items
   buildMenuItems(BuildContext context) {
     return Container(
       color: Color(0xff0D0C22),
       padding: EdgeInsets.all(24),
+      // Wrap widget instead of column widget for vertical spacing
       child: Wrap(
         runSpacing: 16,
         children: [
@@ -240,6 +259,7 @@ class NavigationDrawer extends StatelessWidget {
               style: TextStyle(color: Color(0xffFFFFFF)),
             ),
             onTap: () {
+              // Close the navigation drawer before
               Navigator.pop(context);
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => MembershipPage(),

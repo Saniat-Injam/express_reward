@@ -6,9 +6,6 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: NavigationDrawer(
-        children: [],
-      ),
       appBar: AppBar(
         title: Text("USER"),
         centerTitle: true,
