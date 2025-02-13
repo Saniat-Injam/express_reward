@@ -39,6 +39,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   lucide_icons: ^0.257.0
+  smooth_page_indicator: ^1.2.0+3
+  shared_preferences: ^2.5.2
 
 dev_dependencies:
   flutter_test:
@@ -70,9 +72,13 @@ flutter:
     - icons/earn/
     - icons/splash/
     - animations/
-    - icons/navbar/
+    
     - images/
     - icons/appbar_icons/
+    - icons/navbar_icons/
+    - icons/sidebar_icons/
+    - icons/scaffold_icons/
+
     
 
   # An image asset can refer to one or more resolution-specific "variants", see

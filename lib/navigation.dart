@@ -30,6 +30,7 @@ class _NavigationState extends State<Navigation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgColor,
       body: screens[index],
       bottomNavigationBar: Stack(
         key: navigationKey,
@@ -38,16 +39,19 @@ class _NavigationState extends State<Navigation> {
           CurvedNavigationBar(
             index: index,
             items: [
-              Icon(Icons.home, size: 40, color: Colors.white),
-              Image.asset("icons/navbar/earning.png", width: 40, height: 40),
-              Image.asset("icons/navbar/mission.png", width: 40, height: 40),
-              Image.asset("icons/navbar/rank.png", width: 40, height: 40),
-              Image.asset("icons/navbar/wallet.png", width: 40, height: 40),
+              Image.asset("icons/navbar_icons/home.png", width: 40, height: 40),
+              Image.asset("icons/navbar_icons/earn.png", width: 40, height: 40),
+              Image.asset("icons/navbar_icons/promote.png",
+                  width: 40, height: 40),
+              Image.asset("icons/navbar_icons/wallet.png",
+                  width: 40, height: 40),
+              Image.asset("icons/navbar_icons/profile.png",
+                  width: 40, height: 40),
             ],
-            backgroundColor: bgColor,
+            backgroundColor: Colors.transparent,
             color: Color(0xff1D1B42),
             buttonBackgroundColor: Colors.green,
-            animationDuration: Duration(milliseconds: 300),
+            animationDuration: Duration(milliseconds: 200),
             onTap: (index) {
               setState(() {
                 this.index = index;

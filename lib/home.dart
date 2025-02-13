@@ -1,11 +1,13 @@
 import 'package:express_reward/custom_section/grid_menu.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/custom_section/selection_tile.dart';
+import 'package:express_reward/onboarding_screen.dart';
 import 'package:express_reward/sidebar_pages/membership_page.dart';
 import 'package:express_reward/sidebar_pages/user_page.dart';
 //import 'package:express_reward/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,23 +24,24 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Color(0xff04031A),
       appBar: AppBar(
         backgroundColor: Color(0xff1D1B42),
-        // leading: Icon(
-        //   Icons.menu,
-        //   color: Colors.white,
-        // ),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: Image.asset("icons/appbar_icons/drawer.png"),
+          );
+        }),
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             //Icon(Icons.monetization_on, color: Colors.green),
-            SizedBox(
-              height: 48,
-              width: 48,
-              child: Image.asset("icons/appbar_icons/dollar.png"),
-            ),
-            SizedBox(width: 4),
+            Image.asset("icons/appbar_icons/dollar.png"),
+
             Text(
               "Express Reward",
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
               ),
@@ -52,15 +55,23 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xff04031A),
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Text(
-              "\$1245.90",
-              style: TextStyle(
-                color: Color(0xff00EA7A),
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset("icons/appbar_icons/wallet.png"),
+                SizedBox(width: 6),
+                Text(
+                  "\$1245.90",
+                  style: TextStyle(
+                    color: Color(0xff00EA7A),
+                  ),
+                ),
+              ],
             ),
           ),
-          SizedBox(width: 10),
-          Icon(Icons.notifications, color: Colors.white),
+          SizedBox(width: 8),
+          //Icon(Icons.notifications, color: Colors.white),
+          Image.asset("icons/appbar_icons/bell.png"),
           SizedBox(width: 10),
         ],
       ),
@@ -70,27 +81,34 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundColor: Colors.green,
-                  radius: 20,
-                  child: Icon(Icons.face, color: Colors.black),
+                  // backgroundColor: Colors.green,
+                  radius: 48,
+                  backgroundImage: AssetImage("icons/scaffold_icons/human.png"),
                 ),
                 SizedBox(width: 12),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    SizedBox(height: 4),
                     Text(
                       "Good Morning Tahmid!",
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
+                    SizedBox(height: 4),
                     Text(
                       "Let’s Start Earning",
-                      style: GoogleFonts.poppins(
-                        color: Colors.grey,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
@@ -201,7 +219,7 @@ class NavigationDrawer extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  SizedBox(width: 30),
+                  SizedBox(width: 20),
                   Row(
                     children: [
                       CircleAvatar(
@@ -210,7 +228,7 @@ class NavigationDrawer extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(width: 20),
+                  SizedBox(width: 14),
                   Row(
                     children: [
                       Column(
@@ -219,14 +237,14 @@ class NavigationDrawer extends StatelessWidget {
                           Text(
                             "Tahmid Abdullah",
                             style: TextStyle(
-                              fontSize: 24,
+                              fontSize: 20,
                               color: Colors.white,
                             ),
                           ),
                           Text(
                             "Updrade",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 12,
                               color: Colors.white,
                             ),
                           ),
@@ -253,7 +271,7 @@ class NavigationDrawer extends StatelessWidget {
         runSpacing: 16,
         children: [
           ListTile(
-            leading: Icon(Icons.card_membership, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/membership.png"),
             title: Text(
               "Membership",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -267,7 +285,7 @@ class NavigationDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.leaderboard, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/leaderboard.png"),
             title: Text(
               "Leaderboard",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -275,7 +293,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.campaign, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/promotion.png"),
             title: Text(
               "Promotion",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -283,7 +301,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.share, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/refer_app.png"),
             title: Text(
               "Refer App",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -291,7 +309,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.settings, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/settings.png"),
             title: Text(
               "Settings",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -299,7 +317,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.help, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/faqs.png"),
             title: Text(
               "FAQs",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -307,7 +325,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.share, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/share_app.png"),
             title: Text(
               "Share App",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -315,7 +333,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.star, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/rate_us.png"),
             title: Text(
               "Rate Us",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -326,7 +344,7 @@ class NavigationDrawer extends StatelessWidget {
             color: Colors.grey[700],
           ),
           ListTile(
-            leading: Icon(Icons.privacy_tip, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/privacy_policy.png"),
             title: Text(
               "Privacy Policy",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -334,7 +352,8 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.description, color: Color(0xff00EA7A)),
+            leading:
+                Image.asset("icons/sidebar_icons/terms_and_conditions.png"),
             title: Text(
               "Terms & Conditions",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -342,7 +361,7 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.delete, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/delete_account.png"),
             title: Text(
               "Delete Account",
               style: TextStyle(color: Color(0xffFFFFFF)),
@@ -350,12 +369,30 @@ class NavigationDrawer extends StatelessWidget {
             onTap: () {},
           ),
           ListTile(
-            leading: Icon(Icons.info, color: Color(0xff00EA7A)),
+            leading: Image.asset("icons/sidebar_icons/about.png"),
             title: Text(
               "About",
               style: TextStyle(color: Color(0xffFFFFFF)),
             ),
             onTap: () {},
+          ),
+          ListTile(
+            leading: Image.asset("icons/sidebar_icons/logout.png"),
+            title: Text(
+              "logout",
+              style: TextStyle(color: Color(0xffFFFFFF)),
+            ),
+            onTap: () async {
+              // Navigate directly to onboarding page
+              final prefs = await SharedPreferences.getInstance();
+              prefs.setBool("showHome", false);
+
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => OnboardingScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),
