@@ -77,7 +77,9 @@ flutter:
     - icons/appbar_icons/
     - icons/navbar_icons/
     - icons/sidebar_icons/
+    - icons/sidebar_icons/membership_icons/
     - icons/scaffold_icons/
+    - icons/sidebar_icons/leaderboard_icons/
 
     
 

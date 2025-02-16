@@ -1,4 +1,3 @@
-import 'package:express_reward/sidebar_pages/membership_page.dart';
 import 'package:express_reward/sidebar_pages/user_page.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
@@ -120,9 +119,9 @@ class NavigationDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => MembershipPage(),
-              ));
+              // Navigator.of(context).push(MaterialPageRoute(
+              //   builder: (context) => MembershipPage(),
+              // ));
             },
           ),
           ListTile(
