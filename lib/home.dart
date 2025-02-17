@@ -2,10 +2,11 @@ import 'package:express_reward/custom_section/grid_menu.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/custom_section/selection_tile.dart';
 import 'package:express_reward/onboarding_screen.dart';
-import 'package:express_reward/sidebar_pages/user_page.dart';
+import 'package:express_reward/drawer_pages/user_page.dart';
 //import 'package:express_reward/sidebar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:express_reward/drawer_pages/logout_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -385,11 +386,12 @@ class NavigationDrawer extends StatelessWidget {
               final prefs = await SharedPreferences.getInstance();
               prefs.setBool("showHome", false);
 
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  builder: (context) => OnboardingScreen(),
-                ),
-              );
+              // Navigator.of(context).pushReplacement(
+              //   MaterialPageRoute(
+              //     builder: (context) => OnboardingScreen(),
+              //   ),
+              // );
+              showLogoutDialog(context);
             },
           ),
         ],

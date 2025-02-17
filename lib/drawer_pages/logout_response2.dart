@@ -19,26 +19,28 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: LogoutScreen(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class LogoutScreen extends StatelessWidget {
+  const LogoutScreen({super.key});
 
   void _showLogoutDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          backgroundColor: Colors.black,
+          backgroundColor: Color(0xff252944),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
           title: const Text(
             'Are You Really Want To Log Out?',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+            ),
             textAlign: TextAlign.center,
           ),
           actions: [
@@ -47,7 +49,7 @@ class HomePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Color(0xff00EA7A),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -55,12 +57,16 @@ class HomePage extends StatelessWidget {
                   onPressed: () => Navigator.pop(context),
                   child: const Text(
                     'No',
-                    style: TextStyle(color: Colors.black),
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
                   ),
                 ),
                 OutlinedButton(
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: Colors.green),
+                    side: const BorderSide(
+                      color: Color(0xff00EA7A),
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -71,7 +77,9 @@ class HomePage extends StatelessWidget {
                   },
                   child: const Text(
                     'Yes',
-                    style: TextStyle(color: Colors.green),
+                    style: TextStyle(
+                      color: Color(0xff00EA7A),
+                    ),
                   ),
                 ),
               ],

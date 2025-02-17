@@ -50,8 +50,8 @@ class _NavigationState extends State<Navigation> {
             ],
             backgroundColor: Colors.transparent,
             color: Color(0xff1D1B42),
-            buttonBackgroundColor: Colors.green,
-            animationDuration: Duration(milliseconds: 200),
+            buttonBackgroundColor: Color(0xFF00EA7A),
+            animationDuration: Duration(milliseconds: 150),
             onTap: (index) {
               setState(() {
                 this.index = index;
@@ -67,7 +67,7 @@ class _NavigationState extends State<Navigation> {
                 (index) => Text(
                   labels[index],
                   style: TextStyle(
-                    color: index == index ? Colors.green : Colors.white,
+                    color: index == index ? Color(0xFF00EA7A) : Colors.white,
                     fontSize: 14,
                   ),
                 ),
