@@ -1,4 +1,4 @@
-import 'package:express_reward/bottom_navbar_section/walltet.dart';
+import 'package:express_reward/navigation.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -23,7 +23,7 @@ class SplashScreenState extends State<SplashScreen> {
       } else {
         timer.cancel();
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => WalletScreen()),
+          MaterialPageRoute(builder: (context) => Navigation()),
         );
       }
     });

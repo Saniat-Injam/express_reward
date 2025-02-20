@@ -43,10 +43,6 @@ class GridMenu extends StatelessWidget {
                   fontSize: 14,
                   color: Colors.white,
                 ),
-                // style: GoogleFonts.poppins(
-                //   color: Colors.white,
-                //   fontSize: 14,
-                // ),
               ),
             ],
           ),

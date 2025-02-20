@@ -120,7 +120,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
 class TransactionTile extends StatelessWidget {
   final Transaction transaction;
 
-  TransactionTile({required this.transaction});
+  const TransactionTile({super.key, required this.transaction});
 
   @override
   Widget build(BuildContext context) {

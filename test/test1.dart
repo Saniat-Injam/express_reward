@@ -1,39 +1,62 @@
-// lottie implementation
+// Spalash Screen Example
 
+import 'package:express_reward/home.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'package:device_preview/device_preview.dart';
 
-class BottomNavBar extends StatelessWidget {
-  const BottomNavBar({super.key});
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      backgroundColor: Color(0xff1D1B42),
-      type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.green,
-      unselectedItemColor: Colors.grey,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home",
+    return MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
+  @override
+  SplashScreenState createState() => SplashScreenState();
+}
+
+class SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 3), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xff04031A),
+      body: Center(
+        child: Image.asset(
+          "icons/splash/dollar.png",
+          width: 200,
+          height: 200,
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.monetization_on),
-          label: "Earn",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.campaign),
-          label: "Promote",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.account_balance_wallet),
-          label: "Wallet",
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: "Profile",
-        ),
-      ],
+      ),
     );
   }
 }

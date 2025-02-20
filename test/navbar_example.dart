@@ -1,19 +1,27 @@
-// Bottom navbar example
+// Bottom navbar example (Home, Notification, Example)
 
 import 'package:flutter/material.dart';
+import 'package:device_preview/device_preview.dart';
 
-/// Flutter code sample for [NavigationBar].
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
+  );
+}
 
-void main() => runApp(const NavigationBarApp());
-
-class NavigationBarApp extends StatelessWidget {
-  const NavigationBarApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      home: const NavigationExample(),
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
+      home: NavigationExample(),
     );
   }
 }

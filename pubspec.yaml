@@ -42,6 +42,11 @@ dependencies:
   lucide_icons: ^0.257.0
   smooth_page_indicator: ^1.2.0+3
   shared_preferences: ^2.5.2
+  flutter_native_splash: ^2.4.5
+
+flutter_native_splash:
+  image: icons/animations/lottie_dollar.png
+
 
 dev_dependencies:
   flutter_test:
@@ -71,7 +76,8 @@ flutter:
     - icons/play_quiz/
     - icons/promotions/
     - icons/earn/
-    - icons/splash/
+    - icons/animations/
+
     - animations/
     
     - images/
