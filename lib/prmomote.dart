@@ -1,5 +1,8 @@
+import 'package:express_reward/promote_section/promote_social_handle.dart';
+import 'package:express_reward/promote_section/promote_videos.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'promote_section/promote_website.dart';
 
 class PromoteScreen extends StatelessWidget {
   const PromoteScreen({super.key});
@@ -54,15 +57,15 @@ class PromoteScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  const Icon(Icons.lightbulb, color: Colors.green, size: 32),
+                  Image.asset("icons/promote_icons/light.png"),
                   const SizedBox(height: 8),
                   Text(
                     'Dear Tahmid, You Can Use Our App To Drive More Traffic To Your Website Or Increase Views On Your Videos. It\'s An Excellent Method For Attracting More Visitors And Viewers. If You\'re Interested, Give It A Try!',
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
                       color: Colors.white,
+                      height: 1.5,
                     ),
                   ),
                 ],
@@ -75,72 +78,98 @@ class PromoteScreen extends StatelessWidget {
               children: [
                 _buildPromoteTile(
                   context,
-                  icon: Icons.language,
+                  //icon: Icons.language,
+                  imagePath: "icons/promote_icons/promote_website.png",
                   title: 'Promote Website',
                   subtitle: 'In Order To Promote, You Have To Pay',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PromoteWebsiteScreen()),
+                    );
+                  },
                 ),
                 _buildPromoteTile(
                   context,
-                  icon: Icons.play_circle_fill,
+                  //icon: Icons.play_circle_fill,
+                  imagePath: "icons/promote_icons/promote_videos.png",
                   title: 'Promote Videos',
                   subtitle: 'In Order To Promote, You Have To Pay',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PromoteVideosScreen()),
+                    );
+                  },
                 ),
                 _buildPromoteTile(
                   context,
-                  icon: Icons.group,
+                  //icon: Icons.group,
+                  imagePath: "icons/promote_icons/promote_social_handle.png",
                   title: 'Promote Social Handle',
                   subtitle: 'In Order To Promote, You Have To Pay',
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PromoteSocialHandleScreen()),
+                    );
+                  },
                 ),
               ],
             ),
           ),
         ],
       ),
-      //bottomNavigationBar: BottomNavBar(),
     );
   }
 
   Widget _buildPromoteTile(
     BuildContext context, {
-    required IconData icon,
+    //required IconData icon,
+    required String imagePath,
     required String title,
     required String subtitle,
+    required VoidCallback onTap,
   }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16.0),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: const Color(0xFF292B4E),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          children: [
-            Icon(icon, color: Colors.red, size: 32),
-            const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 16.0),
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: const Color(0xFF292B4E),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            children: [
+              //Icon(icon, color: Colors.red, size: 32),
+              Image.asset(imagePath),
+              const SizedBox(width: 16),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white,
+                      )),
+                  const SizedBox(height: 4),
+                  Text(
+                    subtitle,
+                    style: GoogleFonts.poppins(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white54,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  subtitle,
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white54,
-                  ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

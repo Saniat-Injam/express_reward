@@ -77,9 +77,7 @@ flutter:
     - icons/promotions/
     - icons/earn/
     - icons/animations/
-
     - animations/
-    
     - images/
     - icons/appbar_icons/
     - icons/navbar_icons/
@@ -87,6 +85,7 @@ flutter:
     - icons/sidebar_icons/membership_icons/
     - icons/scaffold_icons/
     - icons/sidebar_icons/leaderboard_icons/
+    - icons/promote_icons/
 
     
 

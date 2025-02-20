@@ -1,7 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:express_reward/bottom_navbar_section/earn.dart';
 import 'package:express_reward/home.dart';
-import 'package:express_reward/bottom_navbar_section/prmomote.dart';
+import 'package:express_reward/prmomote.dart';
 import 'package:express_reward/bottom_navbar_section/profile.dart';
 import 'package:express_reward/bottom_navbar_section/walltet.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class _NavigationState extends State<Navigation> {
   final navigationKey = GlobalKey<CurvedNavigationBarState>();
   Color bgColor = Color(0xff04031A);
   int index = 0;
-  final List<String> labels = ["Home", "Earning", "Mission", "Rank", "Wallet"];
+  final List<String> labels = ["Home", "Earn", "Promote", "Wallet", "Profile"];
 
   final screens = [
     HomeScreen(),

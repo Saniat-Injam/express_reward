@@ -1,4 +1,4 @@
-import 'package:express_reward/custom_section/lottie.dart';
+import 'package:express_reward/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Navigation(),
     );
   }
 }
