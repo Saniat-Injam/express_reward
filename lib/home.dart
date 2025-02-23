@@ -90,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     SizedBox(height: 4),
                     Text(
-                      "Good Morning Tahmid!",
+                      "Good Morning Samia!",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,

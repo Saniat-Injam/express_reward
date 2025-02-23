@@ -86,6 +86,8 @@ flutter:
     - icons/scaffold_icons/
     - icons/sidebar_icons/leaderboard_icons/
     - icons/promote_icons/
+    - icons/wallet_icons/
+    - icons/profile_icons/
 
     
 

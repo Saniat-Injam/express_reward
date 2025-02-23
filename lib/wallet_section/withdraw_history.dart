@@ -1,33 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
-
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: WithdrawHistoryScreen(),
-    );
-  }
-}
 
 class WithdrawHistoryScreen extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
-      icon: "assets/images/bird.png",
+      icon: "icons/wallet_icons/bkash.png",
       title: "Payment Successful",
       amount: "-\$1245.90",
       isSuccessful: true,
@@ -35,7 +11,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
       date: "23 Feb 2024",
     ),
     Transaction(
-      icon: "assets/images/bird.png",
+      icon: "icons/wallet_icons/bkash.png",
       title: "Withdraw Request Sent",
       amount: "-\$1245.90",
       isSuccessful: false,
@@ -43,7 +19,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
       date: "23 Feb 2024",
     ),
     Transaction(
-      icon: "assets/images/nagad.png",
+      icon: "icons/wallet_icons/nagad.png",
       title: "Payment Successful",
       amount: "-\$3445.90",
       isSuccessful: true,
@@ -51,7 +27,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
       date: "23 Feb 2024",
     ),
     Transaction(
-      icon: "assets/images/nagad.png",
+      icon: "icons/wallet_icons/nagad.png",
       title: "Withdraw Request Sent",
       amount: "-\$3445.90",
       isSuccessful: false,
@@ -59,7 +35,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
       date: "23 Feb 2024",
     ),
     Transaction(
-      icon: "assets/images/wise.png",
+      icon: "icons/wallet_icons/wise.png",
       title: "Payment Successful",
       amount: "-\$1245.90",
       isSuccessful: true,
@@ -67,7 +43,7 @@ class WithdrawHistoryScreen extends StatelessWidget {
       date: "23 Feb 2024",
     ),
     Transaction(
-      icon: "assets/images/wise.png",
+      icon: "icons/wallet_icons/wise.png",
       title: "Withdraw Request Sent",
       amount: "-\$1245.90",
       isSuccessful: false,
@@ -86,10 +62,21 @@ class WithdrawHistoryScreen extends StatelessWidget {
         backgroundColor: Color(0xFF16122C),
         elevation: 0,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        title: Text("Withdraw History", style: TextStyle(color: Colors.white)),
+        title: Text(
+          "Withdraw History",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: false,
       ),
       body: Column(
         children: [
@@ -134,8 +121,12 @@ class TransactionTile extends StatelessWidget {
       child: Row(
         children: [
           CircleAvatar(
-            backgroundImage: AssetImage(transaction.icon),
-            radius: 25,
+            radius: 26,
+            backgroundColor: Colors.white,
+            child: Image.asset(
+              transaction.icon,
+              width: 30,
+            ),
           ),
           SizedBox(width: 10),
           Expanded(
@@ -145,14 +136,17 @@ class TransactionTile extends StatelessWidget {
                 Text(
                   transaction.title,
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontSize: 16,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
                   "${transaction.time} | ${transaction.date}",
-                  style: TextStyle(color: Colors.white60, fontSize: 12),
+                  style: TextStyle(
+                    color: Colors.white60,
+                    fontSize: 12,
+                  ),
                 ),
               ],
             ),
@@ -161,8 +155,8 @@ class TransactionTile extends StatelessWidget {
             transaction.amount,
             style: TextStyle(
               color: transaction.isSuccessful
-                  ? Colors.greenAccent
-                  : Colors.redAccent,
+                  ? Color(0xFF00EA7A)
+                  : Color(0xFFFF3B30),
               fontSize: 16,
               fontWeight: FontWeight.bold,
             ),

@@ -2,8 +2,9 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:express_reward/bottom_navbar_section/earn.dart';
 import 'package:express_reward/home.dart';
 import 'package:express_reward/prmomote.dart';
-import 'package:express_reward/bottom_navbar_section/profile.dart';
-import 'package:express_reward/bottom_navbar_section/walltet.dart';
+import 'package:express_reward/wallet.dart';
+import 'package:express_reward/profile.dart';
+
 import 'package:flutter/material.dart';
 
 class Navigation extends StatefulWidget {
@@ -23,8 +24,8 @@ class _NavigationState extends State<Navigation> {
     HomeScreen(),
     EarnScreen(),
     PromoteScreen(),
-    ProfilePage(),
     WalletScreen(),
+    ProfileScreen(),
   ];
 
   @override
