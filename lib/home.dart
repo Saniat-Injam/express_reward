@@ -1,6 +1,6 @@
 import 'package:express_reward/custom_section/grid_menu.dart';
-import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/custom_section/selection_tile.dart';
+import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -115,53 +115,90 @@ class _HomeScreenState extends State<HomeScreen> {
             // FIRST GRID MENU
             SectionTitle("Quick Earning"),
             GridMenu(items: [
-              MenuItem("Daily Check",
-                  imagePath: "icons/quick_earning/daily_check.png"),
-              MenuItem("Watch Video",
-                  imagePath: "icons/quick_earning/watch_video.png"),
-              MenuItem("Scratch Card",
-                  imagePath: "icons/quick_earning/scratch_card.png"),
-              MenuItem("Spin Wheel",
-                  imagePath: "icons/quick_earning/spin_wheel.png"),
-              MenuItem("Reading News",
-                  imagePath: "icons/quick_earning/reading_news.png"),
-              MenuItem("Refer App",
-                  imagePath: "icons/quick_earning/refer_app.png"),
+              MenuItem(
+                title: "Daily Check",
+                imagePath: "icons/quick_earning/daily_check.png",
+              ),
+              MenuItem(
+                title: "Watch Video",
+                imagePath: "icons/quick_earning/watch_video.png",
+              ),
+              MenuItem(
+                title: "Scratch Card",
+                imagePath: "icons/quick_earning/scratch_card.png",
+              ),
+              MenuItem(
+                title: "Spin Wheel",
+                imagePath: "icons/quick_earning/spin_wheel.png",
+              ),
+              MenuItem(
+                title: "Reading News",
+                imagePath: "icons/quick_earning/reading_news.png",
+              ),
+              MenuItem(
+                title: "Refer App",
+                imagePath: "icons/quick_earning/refer_app.png",
+              ),
             ]),
             SizedBox(height: 20),
 
             // SECOND GRID MENU
             SectionTitle("Play Quiz"),
             GridMenu(items: [
-              MenuItem("Trending 2024",
-                  imagePath: "icons/play_quiz/trending_2024.png"),
-              MenuItem("Sports Quiz",
-                  imagePath: "icons/play_quiz/sports_quiz.png"),
-              MenuItem("Music Quiz",
-                  imagePath: "icons/play_quiz/music_quiz.png"),
-              MenuItem("English Quiz",
-                  imagePath: "icons/play_quiz/english_quiz.png"),
-              MenuItem("Bangla Quiz",
-                  imagePath: "icons/play_quiz/bangla_quiz.png"),
-              MenuItem("Riddle", imagePath: "icons/play_quiz/riddle.png"),
+              MenuItem(
+                title: "Trending 2024",
+                imagePath: "icons/play_quiz/trending_2024.png",
+              ),
+              MenuItem(
+                title: "Sports Quiz",
+                imagePath: "icons/play_quiz/sports_quiz.png",
+              ),
+              MenuItem(
+                title: "Music Quiz",
+                imagePath: "icons/play_quiz/music_quiz.png",
+              ),
+              MenuItem(
+                title: "English Quiz",
+                imagePath: "icons/play_quiz/english_quiz.png",
+              ),
+              MenuItem(
+                title: "Bangla Quiz",
+                imagePath: "icons/play_quiz/bangla_quiz.png",
+              ),
+              MenuItem(
+                title: "Riddle",
+                imagePath: "icons/play_quiz/riddle.png",
+              ),
             ]),
             SizedBox(height: 20),
 
             // THIRD GRID MENU
             SectionTitle("Promotions"),
             GridMenu(items: [
-              MenuItem("Boost Video",
-                  imagePath: "icons/promotions/boost_video.png"),
-              MenuItem("Boost Traffic",
-                  imagePath: "icons/promotions/boost_traffic.png"),
-              MenuItem("Get Follower",
-                  imagePath: "icons/promotions/get_followers_facebook.png"),
-              MenuItem("Get Follower",
-                  imagePath: "icons/promotions/get_followers_twitter.png"),
-              MenuItem("Get Follower",
-                  imagePath: "icons/promotions/get_followers_instagram.png"),
-              MenuItem("Get Follower",
-                  imagePath: "icons/promotions/get_followers_tiktok.png"),
+              MenuItem(
+                title: "Boost Video",
+                imagePath: "icons/promotions/boost_video.png",
+              ),
+              MenuItem(
+                title: "Boost Traffic",
+                imagePath: "icons/promotions/boost_traffic.png",
+              ),
+              MenuItem(
+                title: "Get Follower",
+                imagePath: "icons/promotions/get_followers_facebook.png",
+              ),
+              MenuItem(
+                title: "Get Follower",
+                imagePath: "icons/promotions/get_followers_twitter.png",
+              ),
+              MenuItem(
+                title: "Get Follower",
+                imagePath: "icons/promotions/get_followers_instagram.png",
+              ),
+              MenuItem(
+                title: "Get Follower",
+                imagePath: "icons/promotions/get_followers_tiktok.png",
+              ),
             ]),
           ],
         ),

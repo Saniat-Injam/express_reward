@@ -78,7 +78,6 @@ class PromoteScreen extends StatelessWidget {
               children: [
                 _buildPromoteTile(
                   context,
-                  //icon: Icons.language,
                   imagePath: "icons/promote_icons/promote_website.png",
                   title: 'Promote Website',
                   subtitle: 'In Order To Promote, You Have To Pay',
@@ -92,7 +91,6 @@ class PromoteScreen extends StatelessWidget {
                 ),
                 _buildPromoteTile(
                   context,
-                  //icon: Icons.play_circle_fill,
                   imagePath: "icons/promote_icons/promote_videos.png",
                   title: 'Promote Videos',
                   subtitle: 'In Order To Promote, You Have To Pay',
@@ -106,7 +104,6 @@ class PromoteScreen extends StatelessWidget {
                 ),
                 _buildPromoteTile(
                   context,
-                  //icon: Icons.group,
                   imagePath: "icons/promote_icons/promote_social_handle.png",
                   title: 'Promote Social Handle',
                   subtitle: 'In Order To Promote, You Have To Pay',
@@ -128,7 +125,6 @@ class PromoteScreen extends StatelessWidget {
 
   Widget _buildPromoteTile(
     BuildContext context, {
-    //required IconData icon,
     required String imagePath,
     required String title,
     required String subtitle,
@@ -146,7 +142,6 @@ class PromoteScreen extends StatelessWidget {
           ),
           child: Row(
             children: [
-              //Icon(icon, color: Colors.red, size: 32),
               Image.asset(imagePath),
               const SizedBox(width: 16),
               Column(

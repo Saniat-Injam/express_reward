@@ -75,7 +75,6 @@ flutter:
     - icons/quick_earning/
     - icons/play_quiz/
     - icons/promotions/
-    - icons/earn/
     - icons/animations/
     - animations/
     - images/
@@ -88,6 +87,7 @@ flutter:
     - icons/promote_icons/
     - icons/wallet_icons/
     - icons/profile_icons/
+    - icons/earn_icons/
 
     
 

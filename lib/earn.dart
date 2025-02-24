@@ -1,36 +1,69 @@
-import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class MenuItem {
+  final String imagePath;
+  final String title;
+  final String subtitle;
+  final IconData? icon;
+  final Color? color;
+
+  MenuItem({
+    required this.imagePath,
+    required this.title,
+    required this.subtitle,
+    this.icon,
+    this.color,
+  });
+}
+
 class EarnScreen extends StatelessWidget {
   final List<MenuItem> items = [
-    MenuItem("Daily Check",
-        imagePath: "icons/quick_earning/daily_check.png",
-        subtitle: "Claim your deily free reward"),
-    MenuItem("Play Quiz",
-        imagePath: "icons/earn/play_quiz.png",
-        subtitle: "Earn rewards by playing quiz"),
-    MenuItem("Riddle",
-        imagePath: "icons/play_quiz/riddle.png",
-        subtitle: "Earn rewards by playing riddle"),
-    MenuItem("Reading News",
-        imagePath: "icons/quick_earning/reading_news.png",
-        subtitle: "Earn reward by reading news"),
-    MenuItem("Watch Video",
-        imagePath: "icons/quick_earning/watch_video.png",
-        subtitle: "Earn rewards by watch video"),
-    MenuItem("Scratch Card",
-        imagePath: "icons/quick_earning/scratch_card.png",
-        subtitle: "Earn rewards by scratching card"),
-    MenuItem("Spin Wheel",
-        imagePath: "icons/quick_earning/spin_wheel.png",
-        subtitle: "Refer app and earn both"),
-    MenuItem("Follow Profiles",
-        imagePath: "icons/earn/follow_profiles.png",
-        subtitle: "Follow and earn"),
-    MenuItem("Refer App",
-        imagePath: "icons/quick_earning/refer_app.png",
-        subtitle: "Refer app and earn both"),
+    MenuItem(
+      title: "Daily Check",
+      imagePath: "icons/earn_icons/daily_check.png",
+      subtitle: "Claim your deily free reward",
+    ),
+    MenuItem(
+      title: "Play Quiz",
+      imagePath: "icons/earn_icons/play_quiz.png",
+      subtitle: "Earn rewards by playing quiz",
+    ),
+    MenuItem(
+      title: "Riddle",
+      imagePath: "icons/earn_icons/riddle.png",
+      subtitle: "Earn rewards by playing riddle",
+    ),
+    MenuItem(
+      title: "Reading News",
+      imagePath: "icons/earn_icons/reading_news.png",
+      subtitle: "Earn reward by reading news",
+    ),
+    MenuItem(
+      title: "Watch Video",
+      imagePath: "icons/earn_icons/watch_video.png",
+      subtitle: "Earn rewards by watch video",
+    ),
+    MenuItem(
+      title: "Scratch Card",
+      imagePath: "icons/earn_icons/scratch_card.png",
+      subtitle: "Earn rewards by scratching card",
+    ),
+    MenuItem(
+      title: "Spin Wheel",
+      imagePath: "icons/earn_icons/spin_wheel.png",
+      subtitle: "Refer app and earn both",
+    ),
+    MenuItem(
+      title: "Follow Profiles",
+      imagePath: "icons/earn_icons/follow_profiles.png",
+      subtitle: "Follow and earn",
+    ),
+    MenuItem(
+      title: "Refer App",
+      imagePath: "icons/earn_icons/refer_app.png",
+      subtitle: "Refer app and earn both",
+    ),
   ];
 
   EarnScreen({super.key});
@@ -93,12 +126,7 @@ class EarnScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (item.imagePath != null)
-                    Image.asset(item.imagePath!) // Asset Icon
-                  else
-                    Icon(item.icon,
-                        color: item.color, size: 30), // Default Icon
-
+                  Image.asset(item.imagePath),
                   SizedBox(height: 8),
                   Text(
                     item.title,
@@ -107,10 +135,6 @@ class EarnScreen extends StatelessWidget {
                       fontSize: 14,
                       color: Colors.white,
                     ),
-                    // style: GoogleFonts.poppins(
-                    //   color: Colors.white,
-                    //   fontSize: 14,
-                    // ),
                   ),
                   SizedBox(height: 8),
                   Text(
@@ -127,7 +151,6 @@ class EarnScreen extends StatelessWidget {
           },
         ),
       ),
-      //bottomNavigationBar: BottomNavBar(),
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:express_reward/bottom_navbar_section/earn.dart';
+import 'package:express_reward/earn.dart';
 import 'package:express_reward/home.dart';
 import 'package:express_reward/prmomote.dart';
 import 'package:express_reward/wallet.dart';
