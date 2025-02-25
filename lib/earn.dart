@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'Earn_section/daily_check_screen.dart';
+import 'Earn_section/play_quiz_screen.dart';
 
 class MenuItem {
   final String imagePath;
   final String title;
   final String subtitle;
+  final Widget screen;
   final IconData? icon;
   final Color? color;
 
@@ -12,6 +15,7 @@ class MenuItem {
     required this.imagePath,
     required this.title,
     required this.subtitle,
+    required this.screen,
     this.icon,
     this.color,
   });
@@ -20,49 +24,58 @@ class MenuItem {
 class EarnScreen extends StatelessWidget {
   final List<MenuItem> items = [
     MenuItem(
-      title: "Daily Check",
       imagePath: "icons/earn_icons/daily_check.png",
+      title: "Daily Check",
       subtitle: "Claim your deily free reward",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Play Quiz",
       imagePath: "icons/earn_icons/play_quiz.png",
+      title: "Play Quiz",
       subtitle: "Earn rewards by playing quiz",
+      screen: PlayQuizScreen(),
     ),
     MenuItem(
-      title: "Riddle",
       imagePath: "icons/earn_icons/riddle.png",
+      title: "Riddle",
       subtitle: "Earn rewards by playing riddle",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Reading News",
       imagePath: "icons/earn_icons/reading_news.png",
+      title: "Reading News",
       subtitle: "Earn reward by reading news",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Watch Video",
       imagePath: "icons/earn_icons/watch_video.png",
+      title: "Watch Video",
       subtitle: "Earn rewards by watch video",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Scratch Card",
       imagePath: "icons/earn_icons/scratch_card.png",
+      title: "Scratch Card",
       subtitle: "Earn rewards by scratching card",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Spin Wheel",
       imagePath: "icons/earn_icons/spin_wheel.png",
+      title: "Spin Wheel",
       subtitle: "Refer app and earn both",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Follow Profiles",
       imagePath: "icons/earn_icons/follow_profiles.png",
+      title: "Follow Profiles",
       subtitle: "Follow and earn",
+      screen: DailyCheckScreen(),
     ),
     MenuItem(
-      title: "Refer App",
       imagePath: "icons/earn_icons/refer_app.png",
+      title: "Refer App",
       subtitle: "Refer app and earn both",
+      screen: DailyCheckScreen(),
     ),
   ];
 
@@ -118,34 +131,42 @@ class EarnScreen extends StatelessWidget {
           itemCount: items.length,
           itemBuilder: (context, index) {
             final item = items[index];
-            return Container(
-              decoration: BoxDecoration(
-                color: Color(0xff1D1B42),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(item.imagePath),
-                  SizedBox(height: 8),
-                  Text(
-                    item.title,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => item.screen),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Color(0xff1D1B42),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(item.imagePath),
+                    SizedBox(height: 8),
+                    Text(
+                      item.title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    item.subtitle ?? "",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.white,
+                    SizedBox(height: 8),
+                    Text(
+                      item.subtitle,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 10,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             );
           },

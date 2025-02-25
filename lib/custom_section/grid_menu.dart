@@ -30,10 +30,7 @@ class GridMenu extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              if (item.imagePath != null)
-                Image.asset(item.imagePath!) // Asset Icon
-              else
-                Icon(item.icon, color: item.color, size: 30), // Default Icon
+              Image.asset(item.imagePath), // Default Icon
 
               SizedBox(height: 8),
               Text(

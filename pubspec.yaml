@@ -35,6 +35,7 @@ dependencies:
   lottie: ^3.0.0
   curved_navigation_bar: ^1.0.6
   font_awesome_flutter: ^10.5.0
+  flutter_fortune_wheel: ^1.2.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -88,6 +89,8 @@ flutter:
     - icons/wallet_icons/
     - icons/profile_icons/
     - icons/earn_icons/
+    - icons/earn_icons/bangla_quiz_icons/
+    - icons/earn_icons/english_quiz_icons/
 
     
 

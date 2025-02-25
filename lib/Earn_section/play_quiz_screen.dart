@@ -30,19 +30,25 @@ class PlayQuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF0D0C22),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1B1532),
+        backgroundColor: const Color(0xFF1D1B42),
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () {},
         ),
         title: const Text(
           "Play Quiz",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 18,
+            color: Colors.white,
+          ),
         ),
       ),
-      backgroundColor: const Color(0xFF0E0A1F),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -87,7 +93,7 @@ class QuizCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xFF221C3D),
+        color: const Color(0xFF1D1B42),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Row(
@@ -105,7 +111,6 @@ class QuizCard extends StatelessWidget {
                 title,
                 style: const TextStyle(
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
