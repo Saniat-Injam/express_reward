@@ -1,30 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
 
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: FacebookRewardsScreen(),
-    );
-  }
-}
-
-class FacebookRewardsScreen extends StatelessWidget {
+class YoutubeRewardsScreen extends StatelessWidget {
   final List<Map<String, String>> profiles = [
     {'name': 'Laura Frea', 'reward': '\$0.4'},
     {'name': 'Dindola Harp', 'reward': '\$0.4'},
@@ -33,7 +9,7 @@ class FacebookRewardsScreen extends StatelessWidget {
     {'name': 'Luis Fonsi', 'reward': '\$0.4'},
   ];
 
-  FacebookRewardsScreen({super.key});
+  YoutubeRewardsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +17,17 @@ class FacebookRewardsScreen extends StatelessWidget {
       backgroundColor: Color(0xFF0D0C22),
       appBar: AppBar(
         backgroundColor: Color(0xFF1D1B42),
-        leading: Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
-          "Facebook",
+          "Youtube",
           style: TextStyle(
             color: Colors.white,
           ),
@@ -58,26 +39,24 @@ class FacebookRewardsScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: Color(0xFF1D1B42),
-                borderRadius: BorderRadius.circular(12),
+                color: const Color(0xFF1D1B42),
+                borderRadius: BorderRadius.circular(10),
               ),
-              child: Row(
+              child: Column(
                 children: [
-                  Icon(
-                    Icons.lightbulb,
-                    color: Colors.green,
-                    size: 30,
+                  Image.asset(
+                    "icons/earn_icons/promote_social_handle_icons/light_bulb.png",
                   ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Text(
-                      "Follow Facebook Page Or Profiles And Earn Rewards.",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                      ),
+                  SizedBox(height: 10),
+                  Text(
+                    'Subscribe Youtube Channels And Earn Rewards.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                 ],
@@ -94,23 +73,21 @@ class FacebookRewardsScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.facebook,
-                          color: Colors.white,
-                        ),
-                      ),
+                      leading: Image.asset(
+                          "icons/earn_icons/promote_social_handle_icons/youtube.png"),
                       title: Text(
                         profiles[index]['name']!,
                         style: TextStyle(
                           color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
                         ),
                       ),
                       subtitle: Text(
                         profiles[index]['reward']!,
                         style: TextStyle(
-                          color: Colors.green,
+                          color: Color(0xFF00EA7A),
+                          fontSize: 16,
                         ),
                       ),
                       trailing: OutlinedButton(
@@ -118,6 +95,7 @@ class FacebookRewardsScreen extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(
                             color: Colors.white,
+                            width: 1,
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -127,6 +105,8 @@ class FacebookRewardsScreen extends StatelessWidget {
                           "Follow",
                           style: TextStyle(
                             color: Colors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),

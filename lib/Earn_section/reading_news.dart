@@ -38,11 +38,24 @@ class ReadingNewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF0D0C22),
       appBar: AppBar(
-        title: Text('Reading News'),
+        backgroundColor: Color(0xFF1D1B42),
+        title: Text(
+          'Reading News',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: false,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Padding(
@@ -73,7 +86,7 @@ class NewsTile extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 5.0),
       padding: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
-        color: Colors.black54,
+        color: Color(0xFF1D1B42),
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: Row(
@@ -81,26 +94,48 @@ class NewsTile extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(Icons.article, color: Colors.greenAccent),
+              //Icon(Icons.article, color: Colors.greenAccent),
+              Image.asset(
+                  "icons/earn_icons/reading_news_icons/reading_news.png"),
               SizedBox(width: 10.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
-                    style:
-                        TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                    ),
                   ),
                   SizedBox(height: 5.0),
-                  Text('⏳ 30 Sec | $source',
-                      style: TextStyle(color: Colors.grey)),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.access_time,
+                        size: 16,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(width: 5),
+                      Text(
+                        '30 Sec | $source',
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],
           ),
           Text(
             '+\$0.009',
-            style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              color: Color(0xFF00EA7A),
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+            ),
           ),
         ],
       ),

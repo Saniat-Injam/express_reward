@@ -38,12 +38,25 @@ class WatchVideoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF0D0C22),
       appBar: AppBar(
+        backgroundColor: Color(0xFF1D1B42),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
-        title: Text("Watch Video"),
+        title: Text(
+          "Watch Video",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        centerTitle: false,
       ),
       body: Padding(
         padding: EdgeInsets.all(10.0),
@@ -78,22 +91,43 @@ class VideoTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFF1A1A2E),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      color: Color(0xFF1D1B42),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: ListTile(
-        leading: Icon(Icons.play_circle_fill, color: Colors.purple, size: 40),
-        title: Text(title, style: TextStyle(fontSize: 16, color: Colors.white)),
+        leading:
+            Image.asset("icons/earn_icons/watch_video_icons/watch_video.png"),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+          ),
+        ),
         subtitle: Row(
           children: [
-            Icon(Icons.access_time, size: 14, color: Colors.grey),
+            Icon(
+              Icons.access_time,
+              size: 16,
+              color: Colors.grey,
+            ),
             SizedBox(width: 5),
-            Text(time, style: TextStyle(color: Colors.grey)),
+            Text(
+              time,
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
           ],
         ),
         trailing: Text(
           earn,
           style: TextStyle(
-              color: Colors.green, fontSize: 16, fontWeight: FontWeight.bold),
+            color: Color(0xFF00EA7A),
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+          ),
         ),
       ),
     );

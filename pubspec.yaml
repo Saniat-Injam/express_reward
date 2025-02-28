@@ -89,8 +89,13 @@ flutter:
     - icons/wallet_icons/
     - icons/profile_icons/
     - icons/earn_icons/
+    - icons/earn_icons/play_quiz_icons/
     - icons/earn_icons/bangla_quiz_icons/
     - icons/earn_icons/english_quiz_icons/
+    - icons/earn_icons/reading_news_icons/
+    - icons/earn_icons/watch_video_icons/
+    - icons/earn_icons/promote_social_handle_icons/
+    
 
     
 

@@ -1,10 +1,9 @@
-import 'package:express_reward/Earn_section/promote_social_handle/facebook.dart';
+import 'package:express_reward/Earn_section/promote_social_handle/facebook_rewards.dart';
+import 'package:express_reward/Earn_section/promote_social_handle/instagram_rewards.dart';
+import 'package:express_reward/Earn_section/promote_social_handle/tiktok_rewards.dart';
+import 'package:express_reward/Earn_section/promote_social_handle/twitter_rewards.dart';
+import 'package:express_reward/Earn_section/promote_social_handle/youtube_rewards.dart';
 import 'package:flutter/material.dart';
-import 'package:express_reward/earn_section/promote_social_handle/facebook.dart';
-import 'package:express_reward/earn_section/promote_social_handle/twitter.dart';
-import 'package:express_reward/earn_section/promote_social_handle/instagram.dart';
-import 'package:express_reward/earn_section/promote_social_handle/tiktok.dart';
-import 'package:express_reward/earn_section/promote_social_handle/youtube.dart';
 
 class PromoteSocialHandleScreen extends StatelessWidget {
   const PromoteSocialHandleScreen({super.key});
@@ -41,62 +40,68 @@ class PromoteSocialHandleScreen extends StatelessWidget {
             childAspectRatio: 1.8,
             children: [
               socialButton(
-                imagePath: "icons/promote_icons/facebook.png",
+                imagePath:
+                    "icons/earn_icons/promote_social_handle_icons/facebook.png",
                 color: const Color(0xFF1877F2),
                 label: 'Facebook',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FacebookRewardsScreen()),
+                      builder: (context) => FacebookRewardsScreen(),
+                    ),
                   );
                 },
               ),
               socialButton(
-                imagePath: "icons/promote_icons/twitter.png",
+                imagePath:
+                    "icons/earn_icons/promote_social_handle_icons/twitter.png",
                 color: const Color(0xFF1DA1F2),
                 label: 'Twitter',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FacebookRewardsScreen()),
+                        builder: (context) => TwitterRewardsScreen()),
                   );
                 },
               ),
               socialButton(
-                imagePath: "icons/promote_icons/instagram.png",
+                imagePath:
+                    "icons/earn_icons/promote_social_handle_icons/instagram.png",
                 color: const Color(0xFFC13584),
                 label: 'Instagram',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FacebookRewardsScreen()),
+                        builder: (context) => InstagramRewardsScreen()),
                   );
                 },
               ),
               socialButton(
-                imagePath: "icons/promote_icons/tiktok.png",
+                imagePath:
+                    "icons/earn_icons/promote_social_handle_icons/tiktok.png",
                 color: Colors.black,
                 label: 'TikTok',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FacebookRewardsScreen()),
+                        builder: (context) => TiktokRewardsScreen()),
                   );
                 },
               ),
               socialButton(
-                imagePath: "icons/promote_icons/youtube.png",
+                imagePath:
+                    "icons/earn_icons/promote_social_handle_icons/youtube.png",
                 color: Colors.red,
                 label: 'YouTube',
                 onTap: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FacebookRewardsScreen()),
+                        builder: (context) => YoutubeRewardsScreen()),
                   );
                 },
               ),

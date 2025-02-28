@@ -1,30 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
 
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: BanglaQuizScreen(),
-    );
-  }
-}
-
-class BanglaQuizScreen extends StatelessWidget {
+class EnglishQuizScreen extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
     {
       'imgPath': "icons/earn_icons/english_quiz_icons/botany.png",
@@ -69,7 +45,7 @@ class BanglaQuizScreen extends StatelessWidget {
     },
   ];
 
-  BanglaQuizScreen({super.key});
+  EnglishQuizScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -78,11 +54,13 @@ class BanglaQuizScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF1D1B42),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
           'English Quiz',

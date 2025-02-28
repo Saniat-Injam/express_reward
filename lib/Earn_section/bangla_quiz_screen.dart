@@ -1,69 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
-
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: BanglaQuizScreen(),
-    );
-  }
-}
 
 class BanglaQuizScreen extends StatelessWidget {
   final List<Map<String, dynamic>> categories = [
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/itihas.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/itihas.png",
       'title': 'ইতিহাস',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/udvid_biggan.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/udvid_biggan.png",
       'title': 'উদ্ভিদ বিজ্ঞান',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/gonit.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/gonit.png",
       'title': 'গণিত',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/bangla_sahitto.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/bangla_sahitto.png",
       'title': 'বাংলা সাহিত্য',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/bangla_bekaron.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/bangla_bekaron.png",
       'title': 'বাংলা ব্যাকরণ',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/banijjo.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/banijjo.png",
       'title': 'বাণিজ্য',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/biggan.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/biggan.png",
       'title': 'বিজ্ঞান',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/vugol.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/vugol.png",
       'title': 'ভূগোল',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/rosayon.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/rosayon.png",
       'title': 'রসায়ন',
     },
     {
-      'imgPath': "icons/earn_icons/bangla_quiz/samajik_biggan.png",
+      'imgPath': "icons/earn_icons/bangla_quiz_icons/samajik_biggan.png",
       'title': 'সামাজিক বিজ্ঞান',
     },
   ];
@@ -77,11 +53,13 @@ class BanglaQuizScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF1D1B42),
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: Text(
           'Bangla Quiz',

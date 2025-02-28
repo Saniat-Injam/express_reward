@@ -1,3 +1,7 @@
+import 'package:express_reward/Earn_section/promote_social_handle.dart';
+import 'package:express_reward/Earn_section/reading_news.dart';
+import 'package:express_reward/Earn_section/riddle.dart';
+import 'package:express_reward/Earn_section/watch_video.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Earn_section/daily_check_screen.dart';
@@ -39,19 +43,19 @@ class EarnScreen extends StatelessWidget {
       imagePath: "icons/earn_icons/riddle.png",
       title: "Riddle",
       subtitle: "Earn rewards by playing riddle",
-      screen: DailyCheckScreen(),
+      screen: RiddleScreen(),
     ),
     MenuItem(
       imagePath: "icons/earn_icons/reading_news.png",
       title: "Reading News",
       subtitle: "Earn reward by reading news",
-      screen: DailyCheckScreen(),
+      screen: ReadingNewsScreen(),
     ),
     MenuItem(
       imagePath: "icons/earn_icons/watch_video.png",
       title: "Watch Video",
       subtitle: "Earn rewards by watch video",
-      screen: DailyCheckScreen(),
+      screen: WatchVideoScreen(),
     ),
     MenuItem(
       imagePath: "icons/earn_icons/scratch_card.png",
@@ -69,7 +73,7 @@ class EarnScreen extends StatelessWidget {
       imagePath: "icons/earn_icons/follow_profiles.png",
       title: "Follow Profiles",
       subtitle: "Follow and earn",
-      screen: DailyCheckScreen(),
+      screen: PromoteSocialHandleScreen(),
     ),
     MenuItem(
       imagePath: "icons/earn_icons/refer_app.png",

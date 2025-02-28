@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
-      home: RiddleScreen(),
+      home: MusicScreen(),
     );
   }
 }
 
-class RiddleScreen extends StatelessWidget {
-  const RiddleScreen({super.key});
+class MusicScreen extends StatelessWidget {
+  const MusicScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

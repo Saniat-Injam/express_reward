@@ -5,6 +5,31 @@ import 'package:express_reward/promote_section/twitter.dart';
 import 'package:express_reward/promote_section/youtube.dart';
 import 'package:flutter/material.dart';
 
+import 'package:device_preview/device_preview.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
+      home: PromoteSocialHandleScreen(),
+    );
+  }
+}
+
 class PromoteSocialHandleScreen extends StatelessWidget {
   const PromoteSocialHandleScreen({super.key});
 
@@ -41,7 +66,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
             children: [
               socialButton(
                 imagePath: "icons/promote_icons/facebook.png",
-                color: const Color(0xFF1877F2),
                 label: 'Facebook',
                 onTap: () {
                   Navigator.push(
@@ -52,7 +76,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
               ),
               socialButton(
                 imagePath: "icons/promote_icons/twitter.png",
-                color: const Color(0xFF1DA1F2),
                 label: 'Twitter',
                 onTap: () {
                   Navigator.push(
@@ -63,7 +86,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
               ),
               socialButton(
                 imagePath: "icons/promote_icons/instagram.png",
-                color: const Color(0xFFC13584),
                 label: 'Instagram',
                 onTap: () {
                   Navigator.push(
@@ -74,7 +96,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
               ),
               socialButton(
                 imagePath: "icons/promote_icons/tiktok.png",
-                color: Colors.black,
                 label: 'TikTok',
                 onTap: () {
                   Navigator.push(
@@ -85,7 +106,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
               ),
               socialButton(
                 imagePath: "icons/promote_icons/youtube.png",
-                color: Colors.red,
                 label: 'YouTube',
                 onTap: () {
                   Navigator.push(
@@ -103,7 +123,6 @@ class PromoteSocialHandleScreen extends StatelessWidget {
 
   Widget socialButton({
     required String imagePath,
-    required Color color,
     required String label,
     required VoidCallback onTap,
   }) {

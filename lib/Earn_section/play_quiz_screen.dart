@@ -1,28 +1,7 @@
+import 'package:express_reward/Earn_section/bangla_quiz_screen.dart';
+import 'package:express_reward/Earn_section/english_quiz_screen.dart';
+import 'package:express_reward/Earn_section/riddle.dart';
 import 'package:flutter/material.dart';
-import 'package:device_preview/device_preview.dart';
-
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: PlayQuizScreen(),
-    );
-  }
-}
 
 class PlayQuizScreen extends StatelessWidget {
   const PlayQuizScreen({super.key});
@@ -39,7 +18,9 @@ class PlayQuizScreen extends StatelessWidget {
             Icons.arrow_back_ios,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         title: const Text(
           "Play Quiz",
@@ -54,19 +35,40 @@ class PlayQuizScreen extends StatelessWidget {
         child: Column(
           children: [
             QuizCard(
-              icon: Icons.menu_book,
+              imgpath: "icons/earn_icons/play_quiz_icons/english_quiz.png",
               title: "English Quiz",
-              color: Colors.purple,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => EnglishQuizScreen(),
+                  ),
+                );
+              },
             ),
             QuizCard(
-              icon: Icons.menu_book,
+              imgpath: "icons/earn_icons/play_quiz_icons/bangla_quiz.png",
               title: "Bangla Quiz",
-              color: Colors.green,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BanglaQuizScreen(),
+                  ),
+                );
+              },
             ),
             QuizCard(
-              icon: Icons.extension,
+              imgpath: "icons/earn_icons/play_quiz_icons/riddle.png",
               title: "Riddle",
-              color: Colors.red,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RiddleScreen(),
+                  ),
+                );
+              },
             ),
           ],
         ),
@@ -76,55 +78,62 @@ class PlayQuizScreen extends StatelessWidget {
 }
 
 class QuizCard extends StatelessWidget {
-  final IconData icon;
+  final String imgpath;
   final String title;
-  final Color color;
+  final VoidCallback onTap;
 
   const QuizCard({
-    required this.icon,
+    required this.imgpath,
     required this.title,
-    required this.color,
+    required this.onTap,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(bottom: 12),
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: const Color(0xFF1D1B42),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Row(
-        children: [
-          CircleAvatar(
-            backgroundColor: color,
-            radius: 22,
-            child: Icon(icon, color: Colors.white),
-          ),
-          const SizedBox(width: 16),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: const Color(0xFF1D1B42),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Row(
+          children: [
+            Image.asset(imgpath),
+            // CircleAvatar(
+            //   backgroundColor: color,
+            //   radius: 22,
+            //   child: Icon(
+            //     icon,
+            //     color: Colors.white,
+            //   ),
+            // ),
+            const SizedBox(width: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 4),
-              const Text(
-                "In Order To Promote, You Have To Pay",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.grey,
+                const SizedBox(height: 4),
+                const Text(
+                  "In Order To Promote, You Have To Pay",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
