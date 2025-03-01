@@ -10,7 +10,7 @@ void showLogoutDialog(BuildContext context) {
           borderRadius: BorderRadius.circular(20),
         ),
         title: const Text(
-          'Are You Really Want To Log Out?',
+          'Do You Really Want To Log Out?',
           style: TextStyle(
             color: Colors.white,
           ),

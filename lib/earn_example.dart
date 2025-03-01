@@ -1,22 +1,43 @@
-import 'package:express_reward/Earn_section/promote_social_handle.dart';
-import 'package:express_reward/Earn_section/reading_news.dart';
-import 'package:express_reward/Earn_section/riddle.dart';
-import 'package:express_reward/Earn_section/watch_video.dart';
+import 'package:express_reward/Earn_section/reward_dialog_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'Earn_section/play_quiz_screen.dart';
+import 'package:device_preview/device_preview.dart';
+
+void main() {
+  runApp(
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const MyApp(),
+    ),
+  );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      debugShowCheckedModeBanner: false,
+      home: const EarnScreen(),
+    );
+  }
+}
 
 class MenuItem {
   final String imagePath;
   final String title;
   final String subtitle;
-  final Widget screen;
+  final Widget? screen;
 
   MenuItem({
     required this.imagePath,
     required this.title,
     required this.subtitle,
-    required this.screen,
+    this.screen,
   });
 }
 
@@ -24,17 +45,15 @@ class EarnScreen extends StatefulWidget {
   const EarnScreen({super.key});
 
   @override
-  State<EarnScreen> createState() => _EarnScreenState();
+  EarnScreenState createState() => EarnScreenState();
 }
 
-class _EarnScreenState extends State<EarnScreen> {
-  final List<MenuItem> items = [
+class EarnScreenState extends State<EarnScreen> {
+  late final List<MenuItem> items = [
     MenuItem(
       imagePath: "icons/earn_icons/daily_check.png",
       title: "Daily Check",
-      subtitle: "Claim your deily free reward",
-      //screen: DailyCheckScreen(),
-      screen: PlayQuizScreen(),
+      subtitle: "Claim your daily free reward",
     ),
     MenuItem(
       imagePath: "icons/earn_icons/play_quiz.png",
@@ -42,65 +61,23 @@ class _EarnScreenState extends State<EarnScreen> {
       subtitle: "Earn rewards by playing quiz",
       screen: PlayQuizScreen(),
     ),
-    MenuItem(
-      imagePath: "icons/earn_icons/riddle.png",
-      title: "Riddle",
-      subtitle: "Earn rewards by playing riddle",
-      screen: RiddleScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/reading_news.png",
-      title: "Reading News",
-      subtitle: "Earn reward by reading news",
-      screen: ReadingNewsScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/watch_video.png",
-      title: "Watch Video",
-      subtitle: "Earn rewards by watch video",
-      screen: WatchVideoScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/scratch_card.png",
-      title: "Scratch Card",
-      subtitle: "Earn rewards by scratching card",
-      screen: PlayQuizScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/spin_wheel.png",
-      title: "Spin Wheel",
-      subtitle: "Refer app and earn both",
-      screen: PlayQuizScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/follow_profiles.png",
-      title: "Follow Profiles",
-      subtitle: "Follow and earn",
-      screen: PromoteSocialHandleScreen(),
-    ),
-    MenuItem(
-      imagePath: "icons/earn_icons/refer_app.png",
-      title: "Refer App",
-      subtitle: "Refer app and earn both",
-      screen: PlayQuizScreen(),
-    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff04031A),
+      backgroundColor: const Color(0xff04031A),
       appBar: AppBar(
-        backgroundColor: Color(0xff1D1B42),
-        leading: Icon(
+        backgroundColor: const Color(0xff1D1B42),
+        leading: const Icon(
           Icons.menu,
           color: Colors.white,
         ),
         title: Row(
           children: [
-            Icon(Icons.monetization_on, color: Colors.green),
-            SizedBox(width: 4),
-            Text(
+            const Icon(Icons.monetization_on, color: Colors.green),
+            const SizedBox(width: 4),
+            const Text(
               "Express Reward",
               style: TextStyle(
                 fontSize: 16,
@@ -111,23 +88,23 @@ class _EarnScreenState extends State<EarnScreen> {
         ),
         actions: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
-              color: Color(0xff04031A),
+              color: const Color(0xff04031A),
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text("\$1245.90",
                 style: GoogleFonts.poppins(color: Colors.lightGreenAccent)),
           ),
-          SizedBox(width: 10),
-          Icon(Icons.notifications, color: Colors.white),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
+          const Icon(Icons.notifications, color: Colors.white),
+          const SizedBox(width: 10),
         ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 8.0,
             mainAxisSpacing: 8.0,
@@ -138,36 +115,40 @@ class _EarnScreenState extends State<EarnScreen> {
             final item = items[index];
             return GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => item.screen,
-                  ),
-                );
+                if (item.title == "Daily Check") {
+                  showRewardDialog(context);
+                } else if (item.screen != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => item.screen!,
+                    ),
+                  );
+                }
               },
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(0xff1D1B42),
+                  color: const Color(0xff1D1B42),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(item.imagePath),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       item.title,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       item.subtitle,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 10,
                         color: Colors.white,
                       ),

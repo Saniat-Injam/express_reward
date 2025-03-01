@@ -1,4 +1,4 @@
-import 'package:express_reward/drawer_pages/logout_screen.dart';
+import 'package:express_reward/drawer_pages/logout_dialog_screen.dart';
 import 'package:express_reward/drawer_pages/user_page.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
