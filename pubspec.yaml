@@ -88,6 +88,7 @@ flutter:
     - icons/promote_icons/
     - icons/wallet_icons/
     - icons/profile_icons/
+    
     - icons/earn_icons/
     - icons/earn_icons/play_quiz_icons/
     - icons/earn_icons/bangla_quiz_icons/
@@ -97,6 +98,7 @@ flutter:
     - icons/earn_icons/promote_social_handle_icons/
     - icons/earn_icons/invite_icons/
     - icons/earn_icons/my_refer_icons/
+    - icons/earn_icons/riddle_icons/
     
 
     

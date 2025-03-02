@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SectionTitle extends StatelessWidget {
   final String title;
@@ -8,13 +7,13 @@ class SectionTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: 10),
+      padding: EdgeInsets.only(bottom: 8),
       child: Text(
         title,
-        style: GoogleFonts.poppins(
-          fontSize: 14,
+        style: TextStyle(
           color: Colors.white,
-          fontWeight: FontWeight.bold,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

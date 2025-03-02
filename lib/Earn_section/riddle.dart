@@ -34,9 +34,18 @@ class RiddleScreen extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _iconText(Icons.timer, '30 Sec'),
-                _iconText(Icons.attach_money, '\$0.78'),
-                _iconText(Icons.help_outline, 'Q. No. 5 Of 10'),
+                _iconText(
+                  "icons/earn_icons/riddle_icons/timer.png",
+                  '30 Sec',
+                ),
+                _iconText(
+                  "icons/earn_icons/riddle_icons/wallet.png",
+                  '\$0.78',
+                ),
+                _iconText(
+                  "icons/earn_icons/riddle_icons/question_mark.png",
+                  'Q. No. 5 Of 10',
+                ),
               ],
             ),
             SizedBox(height: 20),
@@ -48,7 +57,11 @@ class RiddleScreen extends StatelessWidget {
               ),
               child: Text(
                 'বাংলাদেশের জাতীয় পাখির নাম কি?',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -74,12 +87,19 @@ class RiddleScreen extends StatelessWidget {
     );
   }
 
-  Widget _iconText(IconData icon, String text) {
+  Widget _iconText(String imgpath, String text) {
     return Row(
       children: [
-        Icon(icon, color: Colors.green),
-        SizedBox(width: 5),
-        Text(text, style: TextStyle(color: Colors.white)),
+        Image.asset(imgpath),
+        SizedBox(width: 8),
+        Text(
+          text,
+          style: TextStyle(
+            color: Color(0xFF737686),
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
       ],
     );
   }
@@ -101,7 +121,11 @@ class RiddleScreen extends StatelessWidget {
     );
   }
 
-  Widget _actionButton(String text, Color bgColor, {bool isLarge = false}) {
+  Widget _actionButton(
+    String text,
+    Color bgColor, {
+    bool isLarge = false,
+  }) {
     return SizedBox(
       width: isLarge ? double.infinity : 150,
       child: ElevatedButton(

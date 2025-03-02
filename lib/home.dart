@@ -1,5 +1,5 @@
 import 'package:express_reward/custom_section/grid_menu.dart';
-import 'package:express_reward/custom_section/selection_tile.dart';
+import 'package:express_reward/custom_section/seection_tile.dart';
 import 'package:express_reward/custom_section/menu_item.dart';
 import 'package:express_reward/drawer.dart';
 import 'package:flutter/material.dart';
@@ -30,9 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            //Icon(Icons.monetization_on, color: Colors.green),
             Image.asset("icons/appbar_icons/dollar.png"),
-
             Text(
               "Express Reward",
               style: TextStyle(
@@ -59,15 +57,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   "\$1245.90",
                   style: TextStyle(
                     color: Color(0xff00EA7A),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ],
             ),
           ),
-          SizedBox(width: 8),
-          //Icon(Icons.notifications, color: Colors.white),
+          SizedBox(width: 4),
           Image.asset("icons/appbar_icons/bell.png"),
-          SizedBox(width: 10),
+          SizedBox(width: 6),
         ],
       ),
       body: SingleChildScrollView(
@@ -76,28 +75,25 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  // backgroundColor: Colors.green,
-                  radius: 48,
-                  backgroundImage: AssetImage("icons/scaffold_icons/human.png"),
-                ),
-                SizedBox(width: 12),
+                Image.asset("icons/scaffold_icons/human.png"),
+                // CircleAvatar(
+                //   // backgroundColor: Colors.green,
+                //   radius: 48,
+                //   backgroundImage: AssetImage("icons/scaffold_icons/human.png"),
+                // ),
+                SizedBox(width: 8),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(height: 4),
                     Text(
-                      "Good Morning Samia!",
+                      "Good Morning Tahmid!",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    SizedBox(height: 4),
                     Text(
                       "Let’s Start Earning",
                       style: TextStyle(
