@@ -1,3 +1,4 @@
+import 'package:express_reward/Earn_section/invite.dart';
 import 'package:express_reward/Earn_section/promote_social_handle.dart';
 import 'package:express_reward/Earn_section/reading_news.dart';
 import 'package:express_reward/Earn_section/reward_dialog_screen.dart';
@@ -6,30 +7,6 @@ import 'package:express_reward/Earn_section/watch_video.dart';
 import 'package:express_reward/custom_section/topbar.dart';
 import 'package:flutter/material.dart';
 import 'Earn_section/play_quiz_screen.dart';
-import 'package:device_preview/device_preview.dart';
-
-void main() {
-  runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) => const MyApp(),
-    ),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
-      debugShowCheckedModeBanner: false,
-      home: EarnScreen(),
-    );
-  }
-}
 
 class MenuItem {
   final String imagePath;
@@ -58,8 +35,6 @@ class _EarnScreenState extends State<EarnScreen> {
       imagePath: "icons/earn_icons/daily_check.png",
       title: "Daily Check",
       subtitle: "Claim your deily free reward",
-      //screen: DailyCheckScreen(),
-      screen: PlayQuizScreen(),
     ),
     MenuItem(
       imagePath: "icons/earn_icons/play_quiz.png",
@@ -107,7 +82,7 @@ class _EarnScreenState extends State<EarnScreen> {
       imagePath: "icons/earn_icons/refer_app.png",
       title: "Refer App",
       subtitle: "Refer app and earn both",
-      screen: PlayQuizScreen(),
+      screen: ReferAppScreen(),
     ),
   ];
 

@@ -70,7 +70,7 @@ class ReferAppScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
               decoration: BoxDecoration(
-                color: Colors.grey.shade900,
+                color: Color(0xFF0D0C22),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -100,7 +100,7 @@ class ReferAppScreen extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 "Invite",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   color: Color(0xFF0D0C22),
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -110,7 +110,7 @@ class ReferAppScreen extends StatelessWidget {
             Spacer(),
             Container(
               decoration: BoxDecoration(
-                color: Colors.grey.shade900,
+                color: Color(0xFF0D0C22),
                 borderRadius: BorderRadius.circular(15),
               ),
               padding: EdgeInsets.all(10),
@@ -118,8 +118,8 @@ class ReferAppScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   navItem("Invite", true),
-                  navItem("Missions", true),
-                  navItem("My Referral", true),
+                  navItem("Missions", false),
+                  navItem("My Referral", false),
                 ],
               ),
             ),
@@ -133,8 +133,8 @@ class ReferAppScreen extends StatelessWidget {
   Widget navItem(String title, bool isSelected) {
     return Text(
       title,
-      style: GoogleFonts.poppins(
-        color: isSelected ? Colors.green : Colors.grey,
+      style: TextStyle(
+        color: isSelected ? Color(0xFF00EA7A) : Color(0xFF737686),
         fontSize: 14,
         fontWeight: FontWeight.bold,
       ),

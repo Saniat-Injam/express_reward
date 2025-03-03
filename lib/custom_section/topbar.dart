@@ -1,3 +1,4 @@
+import 'package:express_reward/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -37,13 +38,21 @@ class TopBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              IconButton(
-                icon: const Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                ),
-                onPressed: () {},
-              ),
+              // IconButton(
+              //   icon: const Icon(
+              //     Icons.menu,
+              //     color: Colors.white,
+              //   ),
+              //   onPressed: () {},
+              // ),
+              Builder(builder: (context) {
+                return IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  },
+                  icon: Image.asset("icons/appbar_icons/drawer.png"),
+                );
+              }),
               const SizedBox(width: 8),
               Row(
                 children: [
@@ -51,7 +60,7 @@ class TopBar extends StatelessWidget {
                     padding: const EdgeInsets.all(4.0),
                     decoration: const BoxDecoration(
                       shape: BoxShape.circle,
-                      color: Colors.green,
+                      color: Color(0xFF00EA7A),
                     ),
                     child: const Icon(
                       Icons.attach_money,
@@ -113,6 +122,27 @@ class TopBar extends StatelessWidget {
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: Colors.white,
+      // Scrollable Column
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            buildHeader(context),
+            buildMenuItems(context),
+          ],
+        ),
       ),
     );
   }

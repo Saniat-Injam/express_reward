@@ -1,3 +1,4 @@
+import 'package:express_reward/custom_section/topbar.dart';
 import 'package:express_reward/wallet_section/bkash_withdraw.dart';
 import 'package:express_reward/wallet_section/nagad_withdraw.dart';
 import 'package:express_reward/wallet_section/wise_withdraw.dart';
@@ -33,170 +34,125 @@ class WalletScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFF0D0C22),
-      appBar: AppBar(
-        backgroundColor: Color(0xff1D1B42),
-        leading: Builder(builder: (context) {
-          return IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: Image.asset("icons/appbar_icons/drawer.png"),
-          );
-        }),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset("icons/appbar_icons/dollar.png"),
-            Text(
-              "Express Reward",
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFF0D0C22),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(68.0),
+          child: const TopBar(),
         ),
-        actions: [
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            decoration: BoxDecoration(
-              color: Color(0xff04031A),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Image.asset("icons/appbar_icons/wallet.png"),
-                SizedBox(width: 6),
-                Text(
-                  "\$1245.90",
-                  style: TextStyle(
-                    color: Color(0xff00EA7A),
-                  ),
+        body: Padding(
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Color(0xff1D1B42),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-              ],
-            ),
-          ),
-          SizedBox(width: 8),
-          //Icon(Icons.notifications, color: Colors.white),
-          Image.asset("icons/appbar_icons/bell.png"),
-          SizedBox(width: 10),
-        ],
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
-                color: Color(0xff1D1B42),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Image.asset("icons/wallet_icons/wallet.png"),
-                  Text(
-                    'Minimum Withdraw Limit',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Image.asset("icons/wallet_icons/wallet.png"),
+                    Text(
+                      'Minimum Withdraw Limit',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                     ),
+                    Text(
+                      '\$1245.90',
+                      style: TextStyle(
+                        color: Color(0xFF00EA7A),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Expanded(
+                child: ListView(
+                  children: [
+                    WalletOption(
+                      image: 'icons/wallet_icons/bkash.png',
+                      title: 'Bkash',
+                      subtitle: 'Applicable Only For Bangladesh',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BkashWithdrawScreen()),
+                        );
+                      },
+                    ),
+                    WalletOption(
+                      image: 'icons/wallet_icons/nagad.png',
+                      title: 'Nagad',
+                      subtitle: 'Applicable Only For Bangladesh',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NagadWithdrawScreen()),
+                        );
+                      },
+                    ),
+                    WalletOption(
+                      image: 'icons/wallet_icons/wise.png',
+                      title: 'Wise',
+                      subtitle: 'Applicable For World Wide',
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => WiseWithdrawScreen()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 40),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => WithdrawHistoryScreen(),
+                      ),
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.history,
+                    color: Colors.black,
+                    size: 40,
                   ),
-                  Text(
-                    '\$1245.90',
+                  label: Text(
+                    'View Withdraw History',
                     style: TextStyle(
-                      color: Color(0xFF00EA7A),
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                ],
-              ),
-            ),
-            SizedBox(height: 20),
-            Expanded(
-              child: ListView(
-                children: [
-                  WalletOption(
-                    image: 'icons/wallet_icons/bkash.png',
-                    title: 'Bkash',
-                    subtitle: 'Applicable Only For Bangladesh',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BkashWithdrawScreen()),
-                      );
-                    },
-                  ),
-                  WalletOption(
-                    image: 'icons/wallet_icons/nagad.png',
-                    title: 'Nagad',
-                    subtitle: 'Applicable Only For Bangladesh',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NagadWithdrawScreen()),
-                      );
-                    },
-                  ),
-                  WalletOption(
-                    image: 'icons/wallet_icons/wise.png',
-                    title: 'Wise',
-                    subtitle: 'Applicable For World Wide',
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WiseWithdrawScreen()),
-                      );
-                    },
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.all(8),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => WithdrawHistoryScreen(),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF00EA7A),
+                    foregroundColor: Colors.black,
+                    minimumSize: const Size(double.infinity, 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  );
-                },
-                icon: const Icon(
-                  Icons.history,
-                  color: Colors.black,
-                  size: 40,
-                ),
-                label: Text(
-                  'View Withdraw History',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF00EA7A),
-                  foregroundColor: Colors.black,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
               ),
-            ),
-            Spacer(),
-          ],
+              Spacer(),
+            ],
+          ),
         ),
       ),
     );
